@@ -70,7 +70,7 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
       <div className="lg:col-span-12 xl:col-span-5 bg-white border border-emerald-50 rounded-[32px] p-6 shadow-sm shadow-emerald-100/50 flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-3 mb-6">
-            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md shadow-emerald-250">
+            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md">
               <Compass className="w-5 h-5" />
             </div>
             <div>
@@ -81,17 +81,19 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1.5 flex justify-between">
+              <label htmlFor="commute-distance-slider" className="block text-xs font-bold text-slate-600 mb-1.5 flex justify-between">
                 <span>Daily Commute Distance</span>
                 <span className="font-extrabold text-emerald-600">{commute} km/day</span>
               </label>
               <input
+                id="commute-distance-slider"
                 type="range"
                 min="0"
                 max="150"
                 value={commute}
                 onChange={(e) => setCommute(Number(e.target.value))}
-                className="w-full h-1.5 bg-emerald-100 rounded-lg cursor-pointer appearance-none accent-emerald-500"
+                className="w-full h-1.5 bg-emerald-100 rounded-lg cursor-pointer appearance-none accent-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-1 rounded-sm"
+                aria-label="Daily commute distance in kilometers"
               />
               <div className="flex justify-between text-[10px] font-bold text-slate-400 mt-1">
                 <span>0 km</span>
@@ -101,14 +103,16 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1.5 flex items-center gap-1.5">
+              <label htmlFor="vehicle-type-select" className="block text-xs font-bold text-slate-600 mb-1.5 flex items-center gap-1.5">
                 <Car className="w-3.5 h-3.5 text-emerald-500" />
                 Primary Transport Mode
               </label>
               <select
+                id="vehicle-type-select"
                 value={vehicle}
                 onChange={(e) => setVehicle(e.target.value)}
-                className="w-full py-2.5 px-3.5 border border-emerald-100 rounded-2xl text-sm bg-white text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 shadow-xs"
+                className="w-full py-2.5 px-3.5 border border-emerald-100 rounded-2xl text-sm bg-white text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-xs"
+                aria-label="Select primary transportation mode"
               >
                 <option value="ice_car">Gasoline/Diesel Car</option>
                 <option value="hybrid_car">Hybrid Vehicle</option>
@@ -120,7 +124,7 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1.5 flex justify-between">
+              <label htmlFor="electricity-use-slider" className="block text-xs font-bold text-slate-600 mb-1.5 flex justify-between">
                 <span className="flex items-center gap-1.5">
                   <Zap className="w-3.5 h-3.5 text-amber-500" />
                   Monthly Electricity Use
@@ -128,12 +132,14 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
                 <span className="font-extrabold text-amber-500">{electricity} kWh</span>
               </label>
               <input
+                id="electricity-use-slider"
                 type="range"
                 min="0"
                 max="1000"
                 value={electricity}
                 onChange={(e) => setElectricity(Number(e.target.value))}
-                className="w-full h-1.5 bg-amber-100 rounded-lg cursor-pointer appearance-none accent-amber-500"
+                className="w-full h-1.5 bg-amber-100 rounded-lg cursor-pointer appearance-none accent-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-1 rounded-sm"
+                aria-label="Monthly electricity usage in kilowatt-hours"
               />
               <div className="flex justify-between text-[10px] font-bold text-slate-400 mt-1">
                 <span>0 kWh</span>
@@ -143,14 +149,16 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-1.5 flex items-center gap-1.5">
+              <label htmlFor="diet-preference-select" className="block text-xs font-bold text-slate-600 mb-1.5 flex items-center gap-1.5">
                 <Apple className="w-3.5 h-3.5 text-blue-500" />
                 Dietary Preference Map
               </label>
               <select
+                id="diet-preference-select"
                 value={diet}
                 onChange={(e) => setDiet(e.target.value)}
-                className="w-full py-2.5 px-3.5 border border-emerald-100 rounded-2xl text-sm bg-white text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 shadow-xs"
+                className="w-full py-2.5 px-3.5 border border-emerald-100 rounded-2xl text-sm bg-white text-slate-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 shadow-xs"
+                aria-label="Select dietary preference"
               >
                 <option value="heavy_meat">Heavy Meat Consumer</option>
                 <option value="mixed">Mixed/Average (Moderate Meat)</option>
@@ -205,7 +213,7 @@ export default function DashboardView({ habits, twin, onUpdateHabits, isLoading,
             <h4 className="text-[10px] font-extrabold text-emerald-100 uppercase tracking-widest mb-1">Twin Predicted Next</h4>
             <div className="flex items-baseline gap-1.5 mt-2">
               <span className="text-3xl font-black text-white">{twin.predictedFootprint}</span>
-              <span className="text-sm font-bold text-emerald-250">kg CO₂</span>
+              <span className="text-sm font-bold text-emerald-100">kg CO₂</span>
             </div>
             <div className={`mt-2 text-[10px] font-medium text-emerald-50`}>
               {twin.trend < 0 ? `↓ ${Math.abs(twin.trend)}% decrease predicted next month` : `↑ ${twin.trend}% increase projected next month`}

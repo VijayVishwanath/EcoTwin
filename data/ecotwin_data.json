@@ -1,0 +1,866 @@
+{
+  "userProfile": {
+    "habits": {
+      "commuteDistance": 129,
+      "vehicleType": "ice_car",
+      "electricityUnits": 280,
+      "dietPreference": "mixed"
+    },
+    "history": [
+      {
+        "total": 412.9,
+        "commute": 135.4,
+        "electricity": 102.5,
+        "diet": 175,
+        "timestamp": "2025-07-21T13:03:35.803Z"
+      },
+      {
+        "total": 432.7,
+        "commute": 141.1,
+        "electricity": 116.6,
+        "diet": 175,
+        "timestamp": "2025-08-21T13:03:35.804Z"
+      },
+      {
+        "total": 435.5,
+        "commute": 129.8,
+        "electricity": 130.7,
+        "diet": 175,
+        "timestamp": "2025-09-21T13:03:35.804Z"
+      },
+      {
+        "total": 427,
+        "commute": 135.4,
+        "electricity": 116.6,
+        "diet": 175,
+        "timestamp": "2025-10-21T13:03:35.804Z"
+      },
+      {
+        "total": 434.8,
+        "commute": 152.3,
+        "electricity": 107.5,
+        "diet": 175,
+        "timestamp": "2025-11-21T13:03:35.804Z"
+      },
+      {
+        "total": 413.9,
+        "commute": 129.8,
+        "electricity": 109.1,
+        "diet": 175,
+        "timestamp": "2025-12-21T13:03:35.804Z"
+      },
+      {
+        "total": 446.8,
+        "commute": 141.1,
+        "electricity": 130.7,
+        "diet": 175,
+        "timestamp": "2026-01-21T13:03:35.804Z"
+      },
+      {
+        "total": 436.9,
+        "commute": 152.3,
+        "electricity": 109.6,
+        "diet": 175,
+        "timestamp": "2026-02-21T13:03:35.804Z"
+      },
+      {
+        "total": 444.5,
+        "commute": 146.7,
+        "electricity": 122.8,
+        "diet": 175,
+        "timestamp": "2026-03-21T13:03:35.804Z"
+      },
+      {
+        "total": 432.3,
+        "commute": 152.3,
+        "electricity": 105,
+        "diet": 175,
+        "timestamp": "2026-04-21T13:03:35.805Z"
+      },
+      {
+        "total": 423.8,
+        "commute": 146.7,
+        "electricity": 102.1,
+        "diet": 175,
+        "timestamp": "2026-05-21T13:03:35.805Z"
+      },
+      {
+        "total": 1019.1,
+        "commute": 727.9,
+        "electricity": 116.2,
+        "diet": 175,
+        "timestamp": "2026-06-21T13:03:35.805Z"
+      }
+    ],
+    "points": 120,
+    "challenges": [
+      {
+        "id": "c1",
+        "title": "Zero Car Commute",
+        "category": "commute",
+        "description": "Swap your car commute for cycling or walking twice this week.",
+        "co2Saving": 35,
+        "points": 50,
+        "status": "active"
+      },
+      {
+        "id": "c2",
+        "title": "Meat-Free Workweek",
+        "category": "diet",
+        "description": "Eat vegetarian or vegan meals only from Monday to Friday.",
+        "co2Saving": 45,
+        "points": 75,
+        "status": "available"
+      },
+      {
+        "id": "c3",
+        "title": "Power Unplug",
+        "category": "energy",
+        "description": "Unplug stand-by energy hogs and minor appliances for 48 hours.",
+        "co2Saving": 12,
+        "points": 30,
+        "status": "available"
+      },
+      {
+        "id": "c4",
+        "title": "Cool Running",
+        "category": "energy",
+        "description": "Wash all clothes in cold water rather than warm/hot water.",
+        "co2Saving": 15,
+        "points": 40,
+        "status": "available"
+      }
+    ],
+    "chatHistory": [
+      {
+        "id": "welcome",
+        "role": "assistant",
+        "content": "Hello! I'm EcoCoach, your personalized sustainability companion. \n\nI've examined your Carbon Profile. Your current estimated footprint is **432.3 kg CO₂ / month**. \n\nHow can I help you today? You can ask me questions like *\"How do I reduce my transportation footprint by 20%?\"* or *\"Can you give me easy kitchen energy-saving tips?\"*",
+        "timestamp": "2026-06-21T13:03:19.248Z"
+      },
+      {
+        "id": "msg_user_1782047111005",
+        "role": "user",
+        "content": "hi",
+        "timestamp": "2026-06-21T13:05:11.005Z"
+      },
+      {
+        "id": "msg_coach_err_1782047111739",
+        "role": "assistant",
+        "content": "I am currently analyzing your goals. Here are some quick actions based on your diet and electrical habits:\n      \n- Try carpooling to lower transport emission curves\n- Unplug electrical appliances during high-rate peak periods",
+        "timestamp": "2026-06-21T13:05:11.739Z",
+        "suggestedActions": [
+          {
+            "title": "Transition 3 meals to Plant-Based",
+            "description": "Try vegetarian lunch sessions to downscale intensive high-meat manufacturing impact.",
+            "co2Saving": 19.8,
+            "costImpact": "Savings",
+            "difficulty": "Easy"
+          }
+        ]
+      }
+    ]
+  },
+  "leaderboard": [
+    {
+      "id": "comp_0",
+      "name": "Alex",
+      "footprint": 407.5,
+      "points": 301,
+      "rank": 0
+    },
+    {
+      "id": "comp_1",
+      "name": "Jordan",
+      "footprint": 211.3,
+      "points": 184,
+      "rank": 0
+    },
+    {
+      "id": "comp_2",
+      "name": "Taylor",
+      "footprint": 587.3,
+      "points": 313,
+      "rank": 0
+    },
+    {
+      "id": "comp_3",
+      "name": "Casey",
+      "footprint": 287.7,
+      "points": 84,
+      "rank": 0
+    },
+    {
+      "id": "comp_4",
+      "name": "Sam",
+      "footprint": 357.4,
+      "points": 68,
+      "rank": 0
+    },
+    {
+      "id": "comp_5",
+      "name": "Jamie",
+      "footprint": 415.2,
+      "points": 53,
+      "rank": 0
+    },
+    {
+      "id": "comp_6",
+      "name": "Morgan",
+      "footprint": 128.6,
+      "points": 207,
+      "rank": 0
+    },
+    {
+      "id": "comp_7",
+      "name": "Robin",
+      "footprint": 382.5,
+      "points": 192,
+      "rank": 0
+    },
+    {
+      "id": "comp_8",
+      "name": "Pat",
+      "footprint": 447.2,
+      "points": 207,
+      "rank": 0
+    },
+    {
+      "id": "comp_9",
+      "name": "Chris",
+      "footprint": 159.6,
+      "points": 251,
+      "rank": 0
+    },
+    {
+      "id": "comp_10",
+      "name": "Sarah",
+      "footprint": 184.4,
+      "points": 292,
+      "rank": 0
+    },
+    {
+      "id": "comp_11",
+      "name": "Michael",
+      "footprint": 302.6,
+      "points": 351,
+      "rank": 0
+    },
+    {
+      "id": "comp_12",
+      "name": "Emma",
+      "footprint": 490.7,
+      "points": 266,
+      "rank": 0
+    },
+    {
+      "id": "comp_13",
+      "name": "Daniel",
+      "footprint": 170.1,
+      "points": 99,
+      "rank": 0
+    },
+    {
+      "id": "comp_14",
+      "name": "Olivia",
+      "footprint": 146.9,
+      "points": 131,
+      "rank": 0
+    },
+    {
+      "id": "comp_15",
+      "name": "James",
+      "footprint": 165.9,
+      "points": 50,
+      "rank": 0
+    },
+    {
+      "id": "comp_16",
+      "name": "David",
+      "footprint": 402.7,
+      "points": 55,
+      "rank": 0
+    },
+    {
+      "id": "comp_17",
+      "name": "Laura",
+      "footprint": 276.1,
+      "points": 143,
+      "rank": 0
+    },
+    {
+      "id": "comp_18",
+      "name": "Robert",
+      "footprint": 404.5,
+      "points": 271,
+      "rank": 0
+    },
+    {
+      "id": "comp_19",
+      "name": "Jessica",
+      "footprint": 302.7,
+      "points": 104,
+      "rank": 0
+    },
+    {
+      "id": "comp_20",
+      "name": "William",
+      "footprint": 209.3,
+      "points": 289,
+      "rank": 0
+    },
+    {
+      "id": "comp_21",
+      "name": "Linda",
+      "footprint": 245.6,
+      "points": 216,
+      "rank": 0
+    },
+    {
+      "id": "comp_22",
+      "name": "Richard",
+      "footprint": 226.5,
+      "points": 125,
+      "rank": 0
+    },
+    {
+      "id": "comp_23",
+      "name": "Mary",
+      "footprint": 249.8,
+      "points": 273,
+      "rank": 0
+    },
+    {
+      "id": "comp_24",
+      "name": "Joseph",
+      "footprint": 346.1,
+      "points": 54,
+      "rank": 0
+    },
+    {
+      "id": "comp_25",
+      "name": "Karen",
+      "footprint": 437.8,
+      "points": 192,
+      "rank": 0
+    },
+    {
+      "id": "comp_26",
+      "name": "Thomas",
+      "footprint": 352.6,
+      "points": 312,
+      "rank": 0
+    },
+    {
+      "id": "comp_27",
+      "name": "Nancy",
+      "footprint": 419.6,
+      "points": 226,
+      "rank": 0
+    },
+    {
+      "id": "comp_28",
+      "name": "Charles",
+      "footprint": 394,
+      "points": 66,
+      "rank": 0
+    },
+    {
+      "id": "comp_29",
+      "name": "Lisa",
+      "footprint": 291.1,
+      "points": 188,
+      "rank": 0
+    },
+    {
+      "id": "comp_30",
+      "name": "Matthew",
+      "footprint": 253.2,
+      "points": 75,
+      "rank": 0
+    },
+    {
+      "id": "comp_31",
+      "name": "Betty",
+      "footprint": 173.5,
+      "points": 231,
+      "rank": 0
+    },
+    {
+      "id": "comp_32",
+      "name": "Anthony",
+      "footprint": 208.8,
+      "points": 180,
+      "rank": 0
+    },
+    {
+      "id": "comp_33",
+      "name": "Sandra",
+      "footprint": 312.3,
+      "points": 299,
+      "rank": 0
+    },
+    {
+      "id": "comp_34",
+      "name": "Mark",
+      "footprint": 326.5,
+      "points": 285,
+      "rank": 0
+    },
+    {
+      "id": "comp_35",
+      "name": "Ashley",
+      "footprint": 161.2,
+      "points": 259,
+      "rank": 0
+    },
+    {
+      "id": "comp_36",
+      "name": "Donald",
+      "footprint": 168.3,
+      "points": 102,
+      "rank": 0
+    },
+    {
+      "id": "comp_37",
+      "name": "Dorothy",
+      "footprint": 478.7,
+      "points": 206,
+      "rank": 0
+    },
+    {
+      "id": "comp_38",
+      "name": "Steven",
+      "footprint": 324.4,
+      "points": 76,
+      "rank": 0
+    },
+    {
+      "id": "comp_39",
+      "name": "Kimberly",
+      "footprint": 162,
+      "points": 355,
+      "rank": 0
+    },
+    {
+      "id": "comp_40",
+      "name": "Paul",
+      "footprint": 399.3,
+      "points": 268,
+      "rank": 0
+    },
+    {
+      "id": "comp_41",
+      "name": "Donna",
+      "footprint": 325.7,
+      "points": 110,
+      "rank": 0
+    },
+    {
+      "id": "comp_42",
+      "name": "Andrew",
+      "footprint": 272.9,
+      "points": 280,
+      "rank": 0
+    },
+    {
+      "id": "comp_43",
+      "name": "Emily",
+      "footprint": 230.4,
+      "points": 289,
+      "rank": 0
+    },
+    {
+      "id": "comp_44",
+      "name": "Joshua",
+      "footprint": 338.5,
+      "points": 192,
+      "rank": 0
+    },
+    {
+      "id": "comp_45",
+      "name": "Carol",
+      "footprint": 223.5,
+      "points": 344,
+      "rank": 0
+    },
+    {
+      "id": "comp_46",
+      "name": "Kenneth",
+      "footprint": 404.2,
+      "points": 205,
+      "rank": 0
+    },
+    {
+      "id": "comp_47",
+      "name": "Michelle",
+      "footprint": 221.5,
+      "points": 148,
+      "rank": 0
+    },
+    {
+      "id": "comp_48",
+      "name": "Kevin",
+      "footprint": 222.5,
+      "points": 166,
+      "rank": 0
+    },
+    {
+      "id": "comp_49",
+      "name": "Amanda",
+      "footprint": 288.6,
+      "points": 104,
+      "rank": 0
+    },
+    {
+      "id": "comp_50",
+      "name": "Brian",
+      "footprint": 177.2,
+      "points": 52,
+      "rank": 0
+    },
+    {
+      "id": "comp_51",
+      "name": "Elizabeth",
+      "footprint": 188.3,
+      "points": 221,
+      "rank": 0
+    },
+    {
+      "id": "comp_52",
+      "name": "George",
+      "footprint": 258.8,
+      "points": 336,
+      "rank": 0
+    },
+    {
+      "id": "comp_53",
+      "name": "Melissa",
+      "footprint": 374.6,
+      "points": 202,
+      "rank": 0
+    },
+    {
+      "id": "comp_54",
+      "name": "Timothy",
+      "footprint": 178.7,
+      "points": 230,
+      "rank": 0
+    },
+    {
+      "id": "comp_55",
+      "name": "Deborah",
+      "footprint": 173,
+      "points": 150,
+      "rank": 0
+    },
+    {
+      "id": "comp_56",
+      "name": "Ronald",
+      "footprint": 386.8,
+      "points": 266,
+      "rank": 0
+    },
+    {
+      "id": "comp_57",
+      "name": "Stephanie",
+      "footprint": 223.1,
+      "points": 41,
+      "rank": 0
+    },
+    {
+      "id": "comp_58",
+      "name": "Edward",
+      "footprint": 235.3,
+      "points": 329,
+      "rank": 0
+    },
+    {
+      "id": "comp_59",
+      "name": "Susan",
+      "footprint": 322.2,
+      "points": 97,
+      "rank": 0
+    },
+    {
+      "id": "comp_60",
+      "name": "Jason",
+      "footprint": 275.1,
+      "points": 270,
+      "rank": 0
+    },
+    {
+      "id": "comp_61",
+      "name": "Rebecca",
+      "footprint": 170.5,
+      "points": 349,
+      "rank": 0
+    },
+    {
+      "id": "comp_62",
+      "name": "Jeffrey",
+      "footprint": 286.1,
+      "points": 177,
+      "rank": 0
+    },
+    {
+      "id": "comp_63",
+      "name": "Sharon",
+      "footprint": 256.9,
+      "points": 223,
+      "rank": 0
+    },
+    {
+      "id": "comp_64",
+      "name": "Gary",
+      "footprint": 216,
+      "points": 72,
+      "rank": 0
+    },
+    {
+      "id": "comp_65",
+      "name": "Cynthia",
+      "footprint": 212.7,
+      "points": 325,
+      "rank": 0
+    },
+    {
+      "id": "comp_66",
+      "name": "Ryan",
+      "footprint": 187.2,
+      "points": 183,
+      "rank": 0
+    },
+    {
+      "id": "comp_67",
+      "name": "Kathleen",
+      "footprint": 285.2,
+      "points": 201,
+      "rank": 0
+    },
+    {
+      "id": "comp_68",
+      "name": "Nicholas",
+      "footprint": 310.9,
+      "points": 290,
+      "rank": 0
+    },
+    {
+      "id": "comp_69",
+      "name": "Shirley",
+      "footprint": 263.6,
+      "points": 124,
+      "rank": 0
+    },
+    {
+      "id": "comp_70",
+      "name": "Eric",
+      "footprint": 147.5,
+      "points": 292,
+      "rank": 0
+    },
+    {
+      "id": "comp_71",
+      "name": "Amy",
+      "footprint": 240.6,
+      "points": 140,
+      "rank": 0
+    },
+    {
+      "id": "comp_72",
+      "name": "Stephen",
+      "footprint": 130.5,
+      "points": 237,
+      "rank": 0
+    },
+    {
+      "id": "comp_73",
+      "name": "Angela",
+      "footprint": 368,
+      "points": 178,
+      "rank": 0
+    },
+    {
+      "id": "comp_74",
+      "name": "Jonathan",
+      "footprint": 159.7,
+      "points": 152,
+      "rank": 0
+    },
+    {
+      "id": "comp_75",
+      "name": "Helen",
+      "footprint": 324.9,
+      "points": 219,
+      "rank": 0
+    },
+    {
+      "id": "comp_76",
+      "name": "Larry",
+      "footprint": 215.1,
+      "points": 337,
+      "rank": 0
+    },
+    {
+      "id": "comp_77",
+      "name": "Anna",
+      "footprint": 187.9,
+      "points": 271,
+      "rank": 0
+    },
+    {
+      "id": "comp_78",
+      "name": "Justin",
+      "footprint": 386.1,
+      "points": 84,
+      "rank": 0
+    },
+    {
+      "id": "comp_79",
+      "name": "Brenda",
+      "footprint": 291,
+      "points": 131,
+      "rank": 0
+    },
+    {
+      "id": "comp_80",
+      "name": "Scott",
+      "footprint": 148.6,
+      "points": 176,
+      "rank": 0
+    },
+    {
+      "id": "comp_81",
+      "name": "Pamela",
+      "footprint": 138.2,
+      "points": 198,
+      "rank": 0
+    },
+    {
+      "id": "comp_82",
+      "name": "Brandon",
+      "footprint": 368,
+      "points": 54,
+      "rank": 0
+    },
+    {
+      "id": "comp_83",
+      "name": "Nicole",
+      "footprint": 247.4,
+      "points": 355,
+      "rank": 0
+    },
+    {
+      "id": "comp_84",
+      "name": "Frank",
+      "footprint": 190.7,
+      "points": 339,
+      "rank": 0
+    },
+    {
+      "id": "comp_85",
+      "name": "Samantha",
+      "footprint": 295.5,
+      "points": 311,
+      "rank": 0
+    },
+    {
+      "id": "comp_86",
+      "name": "Benjamin",
+      "footprint": 254,
+      "points": 233,
+      "rank": 0
+    },
+    {
+      "id": "comp_87",
+      "name": "Katherine",
+      "footprint": 191.1,
+      "points": 239,
+      "rank": 0
+    },
+    {
+      "id": "comp_88",
+      "name": "Gregory",
+      "footprint": 295.5,
+      "points": 90,
+      "rank": 0
+    },
+    {
+      "id": "comp_89",
+      "name": "Christine",
+      "footprint": 230.9,
+      "points": 289,
+      "rank": 0
+    },
+    {
+      "id": "comp_90",
+      "name": "Raymond",
+      "footprint": 332.6,
+      "points": 314,
+      "rank": 0
+    },
+    {
+      "id": "comp_91",
+      "name": "Debra",
+      "footprint": 274.3,
+      "points": 195,
+      "rank": 0
+    },
+    {
+      "id": "comp_92",
+      "name": "Samuel",
+      "footprint": 311.4,
+      "points": 238,
+      "rank": 0
+    },
+    {
+      "id": "comp_93",
+      "name": "Rachel",
+      "footprint": 280.9,
+      "points": 347,
+      "rank": 0
+    },
+    {
+      "id": "comp_94",
+      "name": "Patrick",
+      "footprint": 379.4,
+      "points": 201,
+      "rank": 0
+    },
+    {
+      "id": "comp_95",
+      "name": "Carolyn",
+      "footprint": 396.9,
+      "points": 190,
+      "rank": 0
+    },
+    {
+      "id": "comp_96",
+      "name": "Alexander",
+      "footprint": 391.1,
+      "points": 238,
+      "rank": 0
+    },
+    {
+      "id": "comp_97",
+      "name": "Janet",
+      "footprint": 227.3,
+      "points": 180,
+      "rank": 0
+    },
+    {
+      "id": "comp_98",
+      "name": "Jack",
+      "footprint": 265.2,
+      "points": 151,
+      "rank": 0
+    },
+    {
+      "id": "comp_99",
+      "name": "Catherine",
+      "footprint": 231.2,
+      "points": 293,
+      "rank": 0
+    }
+  ]
+}

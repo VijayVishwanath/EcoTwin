@@ -103,7 +103,7 @@ export default function SimulatorView({ currentHabits, onApplySimulatedProfile }
       <div className="lg:col-span-12 xl:col-span-5 bg-white border border-emerald-50 rounded-[32px] p-6 shadow-sm shadow-emerald-100/50 flex flex-col justify-between">
         <div>
           <div className="flex items-center space-x-3 mb-6">
-            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md shadow-emerald-250">
+            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md">
               <Sliders className="w-5 h-5 animate-pulse" />
             </div>
             <div>
@@ -114,17 +114,19 @@ export default function SimulatorView({ currentHabits, onApplySimulatedProfile }
 
           <div className="space-y-6">
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
+              <label htmlFor="bike-days-slider" className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
                 <span>Swap Drive with Cycling</span>
                 <span className="text-emerald-600 font-extrabold">{bikeDays} days / workweek</span>
               </label>
               <input 
+                id="bike-days-slider"
                 type="range"
                 min="0"
                 max="5"
                 value={bikeDays}
                 onChange={(e) => setBikeDays(Number(e.target.value))}
-                className="w-full accent-emerald-500 h-1.5 bg-emerald-100 rounded-lg cursor-pointer appearance-none"
+                className="w-full accent-emerald-500 h-1.5 bg-emerald-100 rounded-lg cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:ring-offset-1 rounded-sm"
+                aria-label="Commute bike replacement days per week"
               />
               <p className="text-[10px] font-medium text-slate-400 mt-1.5 leading-relaxed">
                 Substitute carbon commuting with fossil-free transport modes.
@@ -132,18 +134,20 @@ export default function SimulatorView({ currentHabits, onApplySimulatedProfile }
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
+              <label htmlFor="elec-reduction-slider" className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
                 <span>Sustain Domestic Power</span>
                 <span className="text-amber-550 font-extrabold">-{elecReduction}% Reduction</span>
               </label>
               <input 
+                id="elec-reduction-slider"
                 type="range"
                 min="0"
                 max="50"
                 step="5"
                 value={elecReduction}
                 onChange={(e) => setElecReduction(Number(e.target.value))}
-                className="w-full accent-amber-500 h-1.5 bg-amber-100 rounded-lg cursor-pointer appearance-none"
+                className="w-full accent-amber-500 h-1.5 bg-amber-100 rounded-lg cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-1 rounded-sm"
+                aria-label="Target domestic power reduction percent"
               />
               <p className="text-[10px] font-medium text-slate-400 mt-1.5 leading-relaxed">
                 Slash phantom outlet consumption, configure HVAC thermostat bounds.
@@ -151,17 +155,19 @@ export default function SimulatorView({ currentHabits, onApplySimulatedProfile }
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
+              <label htmlFor="veg-meals-slider" className="block text-xs font-bold text-slate-600 mb-2 flex justify-between">
                 <span>Plant-Based Meals Swap</span>
                 <span className="text-blue-500 font-extrabold">{vegMeals} meals / week</span>
               </label>
               <input 
+                id="veg-meals-slider"
                 type="range"
                 min="0"
                 max="21"
                 value={vegMeals}
                 onChange={(e) => setVegMeals(Number(e.target.value))}
-                className="w-full accent-blue-500 h-1.5 bg-blue-100 rounded-lg cursor-pointer appearance-none"
+                className="w-full accent-blue-500 h-1.5 bg-blue-100 rounded-lg cursor-pointer appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:ring-offset-1 rounded-sm"
+                aria-label="Replace diet with plant-based meals per week"
               />
               <p className="text-[10px] font-medium text-slate-400 mt-1.5 leading-relaxed">
                 Lower manufacturing footprints by adopting plant meals (dairy/vegan).
@@ -216,7 +222,7 @@ export default function SimulatorView({ currentHabits, onApplySimulatedProfile }
               <span className="text-[10px] text-emerald-605 font-bold mt-2 block">If changes active</span>
             </div>
 
-            <div className="bg-emerald-600 text-white p-5 rounded-3xl shadow-lg shadow-emerald-250 relative overflow-hidden">
+            <div className="bg-emerald-600 text-white p-5 rounded-3xl shadow-lg shadow-emerald-200/50 relative overflow-hidden">
               <h4 className="text-[10px] font-extrabold text-emerald-100 uppercase tracking-widest mb-1">Est. Savings Rate</h4>
               <div className="flex items-baseline gap-1 mt-2">
                 <span className="text-3xl font-black">{simulation.saving}</span>

@@ -47,20 +47,20 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
       <div className="lg:col-span-12 xl:col-span-4 bg-white border border-emerald-50 rounded-[32px] p-6 shadow-sm shadow-emerald-100/50 flex flex-col justify-between h-full">
         <div>
           <div className="flex items-center space-x-3 mb-4">
-            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md shadow-emerald-250">
+            <div className="p-3 bg-emerald-500 text-white rounded-2xl shadow-md">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
-            <h3 className="font-extrabold text-slate-855 text-lg">AI Carbon Coach</h3>
+            <h3 className="font-extrabold text-slate-900 text-lg">AI Carbon Coach</h3>
           </div>
-          <p className="text-xs text-slate-550 leading-relaxed mb-4 font-medium">
+          <p className="text-xs text-slate-700 leading-relaxed mb-4 font-medium">
             EcoCoach is synced live with your actual habits. You can type organic queries like 
             <span className="font-extrabold block my-1.5 text-emerald-600 font-mono">"How can I cut my commute cost?"</span> or 
             <span className="font-extrabold block text-emerald-600 font-mono">"Analyze my diet footprint limits."</span>
           </p>
 
-          <div className="bg-emerald-50/55 border border-emerald-105 rounded-[24px] p-5 space-y-3 mt-6">
+          <div className="bg-emerald-50/50 border border-emerald-100 rounded-[24px] p-5 space-y-3 mt-6">
             <h4 className="text-[10px] font-extrabold tracking-wider text-emerald-800 uppercase">COACH SPECIALTIES</h4>
-            <ul className="text-xs text-slate-600 space-y-2.5 list-disc pl-4 font-medium">
+            <ul className="text-xs text-slate-705 space-y-2.5 list-disc pl-4 font-medium">
               <li>Detailed footprint audits.</li>
               <li>Dual financial & carbon calculations.</li>
               <li>Generates modular tailored action cards.</li>
@@ -69,7 +69,7 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
         </div>
 
         {adoptNotification && (
-          <div className="bg-emerald-555 border border-emerald-610 text-white text-xs py-3.5 px-4 rounded-2xl flex items-center space-x-2 animate-bounce font-bold shadow-md shadow-emerald-110">
+          <div className="bg-emerald-600 border border-emerald-750 text-white text-xs py-3.5 px-4 rounded-2xl flex items-center space-x-2 animate-bounce font-bold shadow-md">
             <CheckCircle className="w-4 h-4 text-emerald-100" />
             <span>{adoptNotification}</span>
           </div>
@@ -90,7 +90,7 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
             >
               {/* Message bubble */}
               <div 
-                className={`py-3.5 px-4.5 rounded-2xl text-sm leading-relaxed ${
+                className={`py-3.5 px-4 rounded-2xl text-sm leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-slate-900 text-white rounded-tr-none'
                     : 'bg-white border border-emerald-50 text-slate-800 rounded-tl-none shadow-sm shadow-emerald-50/40'
@@ -110,7 +110,7 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
                     {msg.suggestedActions.map((action, idx) => (
                       <div 
                         key={idx} 
-                        className="bg-white border border-emerald-50 rounded-2xl p-4.5 hover:border-emerald-300 hover:shadow-md transition duration-155 flex flex-col justify-between shadow-sm"
+                        className="bg-white border border-emerald-50 rounded-2xl p-4 hover:border-emerald-300 hover:shadow-md transition duration-155 flex flex-col justify-between shadow-sm"
                       >
                         <div>
                           <div className="flex items-start justify-between gap-2">
@@ -119,12 +119,12 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
                               -{action.co2Saving} kg/mo
                             </span>
                           </div>
-                          <p className="text-[10px] text-slate-450 mt-1.5 line-clamp-2 leading-normal font-medium">
+                          <p className="text-[10px] text-slate-500 mt-1.5 line-clamp-2 leading-normal font-medium">
                             {action.description}
                           </p>
                         </div>
 
-                        <div className="mt-4 pt-3.5 border-t border-emerald-50 flex items-center justify-between gap-1">
+                        <div className="mt-4 pt-3 border-t border-emerald-50 flex items-center justify-between gap-1">
                           <div className="flex items-center space-x-1.5 text-[9px] text-slate-400 font-bold uppercase tracking-wide">
                             <span className="px-1.5 py-0.5 bg-slate-100 rounded text-slate-600 font-mono">{action.costImpact}</span>
                             <span className="px-1.5 py-0.5 bg-slate-100 rounded text-slate-600 font-mono">{action.difficulty}</span>
@@ -162,7 +162,7 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
         </div>
 
         {/* Form footer input */}
-        <form onSubmit={handleSend} className="p-4 bg-white border-t border-emerald-55 flex items-center space-x-3">
+        <form onSubmit={handleSend} className="p-4 bg-white border-t border-emerald-100 flex items-center space-x-3">
           <input
             type="text"
             value={input}
@@ -170,13 +170,15 @@ export default function AICoachView({ chatHistory, onSendMessage, onAdoptAction,
             disabled={isLoading}
             placeholder="Describe an eco target or type a custom question..."
             className="flex-grow py-3 px-5 border border-emerald-100 rounded-2xl text-sm text-slate-800 bg-white placeholder-slate-400 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+            aria-label="Type message to AI Carbon Coach"
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
             className="p-3 bg-slate-900 hover:bg-black text-white rounded-2xl transition duration-150 shadow-md cursor-pointer disabled:opacity-40"
+            aria-label="Send message"
           >
-            <Send className="w-4.5 h-4.5" />
+            <Send className="w-4 h-4" />
           </button>
         </form>
 

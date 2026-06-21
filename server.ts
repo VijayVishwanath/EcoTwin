@@ -11,6 +11,14 @@ const PORT = 3000;
 const app = express();
 app.use(express.json());
 
+// Strict Custom Security Headers Middleware (Iframe Safe)
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Referrer-Policy', 'no-referrer-when-downgrade');
+  next();
+});
+
 // Initialize Gemini Client safely with correct telemetry header
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY || 'MOCK_KEY_FOR_BUILD',
@@ -228,12 +236,41 @@ app.get('/api/profile', (req: Request, res: Response) => {
 // Update Profile Habits (Recalculate footprint, log live state point)
 app.post('/api/profile', (req: Request, res: Response) => {
   const { commuteDistance, vehicleType, electricityUnits, dietPreference } = req.body;
+  
+  const validVehicles = ['ice_car', 'hybrid_car', 'electric_car', 'motorcycle', 'public_transit', 'bicycle', 'none'];
+  const validDiets = ['vegan', 'vegetarian', 'pescatarian', 'mixed', 'heavy_meat'];
+
   const db = checkAndLoadData();
 
-  if (commuteDistance !== undefined) db.userProfile.habits.commuteDistance = Number(commuteDistance);
-  if (vehicleType) db.userProfile.habits.vehicleType = vehicleType;
-  if (electricityUnits !== undefined) db.userProfile.habits.electricityUnits = Number(electricityUnits);
-  if (dietPreference) db.userProfile.habits.dietPreference = dietPreference;
+  if (commuteDistance !== undefined) {
+    const val = Number(commuteDistance);
+    if (isNaN(val) || val < 0 || val > 500) {
+      return res.status(400).json({ error: 'commuteDistance must be a number between 0 and 500' });
+    }
+    db.userProfile.habits.commuteDistance = val;
+  }
+
+  if (vehicleType !== undefined) {
+    if (typeof vehicleType !== 'string' || !validVehicles.includes(vehicleType)) {
+      return res.status(400).json({ error: 'Invalid vehicleType format or value' });
+    }
+    db.userProfile.habits.vehicleType = vehicleType;
+  }
+
+  if (electricityUnits !== undefined) {
+    const val = Number(electricityUnits);
+    if (isNaN(val) || val < 0 || val > 5000) {
+      return res.status(400).json({ error: 'electricityUnits must be a number between 0 and 5000' });
+    }
+    db.userProfile.habits.electricityUnits = val;
+  }
+
+  if (dietPreference !== undefined) {
+    if (typeof dietPreference !== 'string' || !validDiets.includes(dietPreference)) {
+      return res.status(400).json({ error: 'Invalid dietPreference format or value' });
+    }
+    db.userProfile.habits.dietPreference = dietPreference;
+  }
 
   // Redo carbon calculation
   const newRecord = calcEngine.calculateFootprint(db.userProfile.habits);
@@ -278,12 +315,29 @@ app.post('/api/profile', (req: Request, res: Response) => {
 // 2. What-If Simulator scenario run
 app.post('/api/simulate', (req: Request, res: Response) => {
   const { bikeCommuteDays, electricityReductionPercent, plantBasedMealsMealsPerWeek } = req.body;
+  
+  const bDays = bikeCommuteDays !== undefined ? Number(bikeCommuteDays) : 0;
+  const eRed = electricityReductionPercent !== undefined ? Number(electricityReductionPercent) : 0;
+  const pMeals = plantBasedMealsMealsPerWeek !== undefined ? Number(plantBasedMealsMealsPerWeek) : 0;
+
+  if (isNaN(bDays) || bDays < 0 || bDays > 7) {
+    return res.status(400).json({ error: 'bikeCommuteDays must be a valid number between 0 and 7' });
+  }
+
+  if (isNaN(eRed) || eRed < 0 || eRed > 100) {
+    return res.status(400).json({ error: 'electricityReductionPercent must be a valid number between 0 and 100' });
+  }
+
+  if (isNaN(pMeals) || pMeals < 0 || pMeals > 21) {
+    return res.status(400).json({ error: 'plantBasedMealsMealsPerWeek must be a valid number between 0 and 21' });
+  }
+
   const db = checkAndLoadData();
 
   const results = simEngine.simulateChanges(db.userProfile.habits, {
-    bikeCommuteDays: bikeCommuteDays ? Number(bikeCommuteDays) : 0,
-    electricityReductionPercent: electricityReductionPercent ? Number(electricityReductionPercent) : 0,
-    plantBasedMealsMealsPerWeek: plantBasedMealsMealsPerWeek ? Number(plantBasedMealsMealsPerWeek) : 0
+    bikeCommuteDays: bDays,
+    electricityReductionPercent: eRed,
+    plantBasedMealsMealsPerWeek: pMeals
   });
 
   res.json(results);
@@ -325,6 +379,11 @@ app.get('/api/leaderboard', (req: Request, res: Response) => {
 // 4. Accept / Complete Sustainability Challenges
 app.post('/api/challenges/:id/:action', (req: Request, res: Response) => {
   const { id, action } = req.params; // action is 'accept' or 'complete'
+  
+  if (action !== 'accept' && action !== 'complete') {
+    return res.status(400).json({ error: 'Invalid challenge action route. Must be accept or complete.' });
+  }
+
   const db = checkAndLoadData();
 
   const challengeIndex = db.userProfile.challenges.findIndex(c => c.id === id);
@@ -380,8 +439,13 @@ app.get('/api/coach/history', (req: Request, res: Response) => {
 
 app.post('/api/coach', async (req: Request, res: Response) => {
   const { message } = req.body;
-  if (!message) {
-    return res.status(400).json({ error: 'Message payload required' });
+  if (!message || typeof message !== 'string' || message.trim() === '') {
+    return res.status(400).json({ error: 'Message payload must be a non-empty string' });
+  }
+
+  // Prevent denial of service or prompt overflow
+  if (message.length > 600) {
+    return res.status(400).json({ error: 'Message length exceeds the maximum allowed limit of 600 characters' });
   }
 
   const db = checkAndLoadData();
