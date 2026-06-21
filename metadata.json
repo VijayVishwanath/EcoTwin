@@ -1,0 +1,6 @@
+{
+  "name": "EcoTwin AI",
+  "description": "AI Carbon Twin dashboard, personalized predictive twin, interactive what-if calculator, and custom AI Carbon Coach chatbot for sustainable habit modeling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
